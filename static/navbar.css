@@ -1,0 +1,132 @@
+
+/* Header css */
+:root{
+    --btn-bg-color : #222831;
+    --txt-cr-bg-bk : rgba(255, 252, 252, 0.9);
+    --txt-color : rgba(240, 239, 239, 0.8);
+    --btn-gg-cr  : #495664;
+    --text-color  : #303841;
+    --txt-color2 : #F5F5F5;
+    --btn-hovered-bg : #222831;
+    --nav-box-cr   :rgba(151, 151, 155, 0.333);
+
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--txt-cr-bg-bk);
+    box-shadow: 0px 1px 0px 1px var(--nav-box-cr) ;
+    width: 100%;
+    padding: 2px 10px 1px 0px;
+    gap: 1.2rem;
+    position: relative;
+}
+.company-logo > img {
+    width: 8rem;
+}
+
+.nav-container{
+    display: flex;
+    gap: 2rem;
+}
+.nav-container > li{
+    text-decoration: none;
+    list-style-type: none;
+}
+.nav-items > a{
+    text-decoration: none;
+    color: var(--btn-hovered-bg);
+    padding: 5px;
+}
+.nav-items > a:hover{
+    border-bottom: 2px solid var(--btn-hovered-bg);
+    color: var(--text-color);
+
+}
+
+/* search container */
+.search-form{
+    width: 20rem;
+    position: relative;
+}
+.search-form > input{
+    padding: 5px;
+    font-size: 1.1rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    box-shadow: 0px .4px 0px 0px var(--btn-gg-cr);
+    background: var(--txt-cr-bg-bk);
+}
+.fa-magnifying-glass{
+    position: absolute;
+    transform: translate(-50%, 50%);
+    right: 2px;
+    font-size: 1rem;
+}
+.sign-btn{
+    padding: 5px 1rem;
+    background: #5e5f5f;
+    color: #fff;
+    border-radius: 5px;
+}
+.sign-btn:hover{
+    cursor: pointer;
+
+}
+.sm-menu{
+    display: none;
+}
+
+/* for mobile  */
+.lg-device{
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    .nav-container, .search-form{
+        display: none;
+    }
+    .sm-menu{
+        margin-left: -4rem;
+        display: inline;
+        font-size: 1.4rem;
+        padding: 2px;
+    }
+    .sm-menu:hover{
+        cursor: pointer;
+        color: #000;
+        background: rgba(126, 125, 122, .4);
+        border-radius: 5px; 
+    }
+    .sm-device{
+        display: none;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: absolute;
+        right: .5rem;
+        top: 4rem;
+        z-index: 1000;
+        background: rgba(197, 197, 197, 0.533);
+        border-radius: 5px;
+        padding: 1rem ;
+        color: #000;
+        justify-content: center;
+        align-items: center;
+    }
+    .sm-active > li{
+        list-style-type: none;
+    }
+    .sm-active > li > a{
+        text-decoration: none;
+        color: var(--btn-hovered-bg);
+    }
+    .toggle-menu{
+        display: none;
+    }
+    .sm-active{
+        display: flex;
+    }
+
+}

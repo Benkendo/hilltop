@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'vehicles.css' %}">
+<div class="vehicles-container">
+    <div class="search-container">
+        {% include 'cars/search.html' %}
+    </div>
+    <div class="vehicles">
+        {% for vehicle in vehicles %}
+        <div class="vehicle">
+            {% if vehicle.images.all %}
+            <img src="{{ vehicle.images.first.image.url }}" alt="{{ vehicle.name }}" />
+            {% else %}
+            <img src="{% static 'default-vehicle.jpg' %}" alt="{{ vehicle.name }}" />
+            {% endif %}
+            <span class="availability">available</span>
+            <span class="vehicle-name">{{ vehicle.name }}</span>
+            <hr>
+            <div class="vehicle-cost">
+                <span class="spec YOM">{{ vehicle.year_of_manufacture }}</span>
+                <span class="spec vehicle-price">{{ vehicle.price }} ksh</span>
+            </div>
+            <div class="other-details">
+                <span class="spec">{{ vehicle.condition }}</span>
+                <span class="spec">{{ vehicle.fuel_type }}</span>
+                <span class="spec">{{ vehicle.power }}</span>
+                <span class="spec">{{ vehicle.transmission }}</span>
+            </div>
+            <p class="vehicle-description">{{ vehicle.description }}</p>
+            <ul class="enquire">
+                <li><a href="https://api.whatsapp.com/send?phone=+254724745682" target="_blank">WhatsApp</a></li>
+                <li><a href="tel:+254724745682">Call</a></li>
+                <li><a href="{% url 'vehicle_details' vehicle.id %}">More</a></li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

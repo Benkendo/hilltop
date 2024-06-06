@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --btn-bg-color : #222831;
+    --txt-cr-bg-bk : #F7F7F7;
+    --txt-color : rgba(240, 239, 239, 0.8);
+    --btn-gg-cr  : #495664;
+    --text-color  : #303841;
+    --txt-color2 : #F5F5F5;
+    --btn-hovered-bg : #222831;
+
+}
+body{
+    background: var(--txt-color);
+}

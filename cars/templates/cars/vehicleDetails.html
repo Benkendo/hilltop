@@ -1,0 +1,95 @@
+{% include 'index.html' %}
+{% block content %}
+    <style>
+        .vehicle-details {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .vehicle-images-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        .vehicle-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .vehicle-image {
+            min-width: 100%;
+        }
+        .next {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            user-select: none;
+            z-index: 1;
+        }
+        .enquire-2{
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        .enquire-2 > li{
+            list-style-type: none;
+        }
+        .enquire-2 > li > a{
+            text-decoration: none;
+            background: rgb(39, 39, 39);
+            padding: 5px;
+            color: azure;
+        }
+        .vehicle-details > ul > li{
+            padding: 5px 1rem;
+        }
+        .vehicle-details > h1, .vehicle-details > p{
+            padding: 5px 1rem;
+        }
+    </style>
+    <div class="vehicle-details">
+        <div class="vehicle-images-wrapper">
+            <div class="vehicle-images">
+                {% for image in vehicle.images.all %}
+                    <img class="vehicle-image" src="{{ image.image.url }}" alt="{{ vehicle.name }}">
+                {% endfor %}
+            </div>
+            <span class="next" onclick="nextImage()">></span>
+        </div>
+        <h1>{{ vehicle.name }}</h1>
+        <p>{{ vehicle.description }}</p>
+        
+        <ul>
+            <li>Price: {{ vehicle.price }}</li>
+            <li>Year of Manufacture: {{ vehicle.year_of_manufacture }}</li>
+            <li>Power: {{ vehicle.power }}</li>
+            <li>Brand: {{ vehicle.brand }}</li>
+            <li>Condition: {{ vehicle.condition }}</li>
+            <li>Fuel Type: {{ vehicle.fuel_type }}</li>
+            <li>Subcategory: {{ vehicle.subcategory }}</li>
+            <li>Transmission: {{ vehicle.transmission }}</li>
+            <li>Running Cost: {{ vehicle.running_cost }}</li>
+            <li>Seller: {{ vehicle.seller }}</li>
+        </ul>
+        <div class="enquire-2">
+            <li><a href="https://api.whatsapp.com/send?phone=+254724745682" target="_blank">WhatsApp</a></li>
+            <li><a href="tel:+254724745682">Call</a></li>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function nextImage() {
+            let imagesContainer = document.querySelector('.vehicle-images');
+            let images = document.querySelectorAll('.vehicle-image');
+            currentIndex = (currentIndex + 1) % images.length;
+            let translateX = -currentIndex * 100;
+            imagesContainer.style.transform = `translateX(${translateX}%)`;
+        }
+    </script>
+{% endblock content %}

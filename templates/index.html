@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HillTop Motors</title>
+    <!-- font awesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <style>
+        .navs{
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 5px;
+            border-bottom: 1px solid rgba(105, 104, 105, .2);
+            justify-content: center;
+        }
+        .navs > li {
+            list-style-type: none;
+            padding-bottom: 2px;
+        }
+        .navs > li:hover{
+            cursor: pointer;
+            border-bottom: 2px solid #000;
+            
+        }
+    </style>
+    
+</head>
+<body>
+    <header>{%  include 'navbar.html' %}</header>
+    <ul class="navs">
+        <li>Home</li>
+        <li>Vehicles</li>
+        <li>Used</li>
+    </ul>
+    <main>
+        {% block content %}
+
+        {% endblock content %}
+    </main>
+    <footer></footer>
+</body>
+</html>

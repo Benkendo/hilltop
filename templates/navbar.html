@@ -1,0 +1,65 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'navbar.css' %}" />
+
+<div class="header-container">
+  <div class="company-logo">
+    {% if company_logo %}
+    <img src="{{ company_logo.logo.url }}" alt="{{ company_logo.name }}" />
+    {% else %}
+    <p>Hilltop Motors</p>
+    {% endif %}
+  </div>
+  <ul class="nav-container">
+    <li class="nav-items"><a href="#">Home</a></li>
+    <li class="nav-items"><a href="#">About</a></li>
+    <li class="nav-items"><a href="#">Contact Us</a></li>
+    <li class="nav-items"><a href="#">Financing</a></li>
+  </ul>
+  <form action="#" method="post" class="search-form">
+    <input type="text" name="q" id="search-term" placeholder="Search Car..." />
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </form>
+
+  <button type="button" class="sign-btn">sign in</button>
+  <i class="sm-menu fa-solid fa-bars"></i>
+
+  <ul class="lg-device sm-device sm-active toggle-menu ">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Contact us</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Financing</a></li>
+  </ul>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const smBars = document.querySelector(".sm-menu");
+    const menuIcon = document.querySelector(".lg-device.sm-device");
+
+    // Reset to default state on page load
+    smBars.classList.add('fa-bars');
+    smBars.classList.remove('fa-xmark');
+    menuIcon.classList.remove('sm-active');
+
+    smBars.addEventListener('click', function() {
+        if (smBars.classList.contains('fa-bars')) {
+            smBars.classList.remove('fa-bars');
+            smBars.classList.add('fa-xmark');
+            menuIcon.classList.add('sm-active');
+        } else {
+            smBars.classList.remove('fa-xmark');
+            smBars.classList.add('fa-bars');
+            menuIcon.classList.remove('sm-active');
+        }
+    });
+
+    // Hide menu and revert icon on body click
+    document.body.addEventListener('click', function(event) {
+        if (event.target !== smBars && !smBars.contains(event.target) && !menuIcon.contains(event.target)) {
+            smBars.classList.remove('fa-xmark');
+            smBars.classList.add('fa-bars');
+            menuIcon.classList.remove('sm-active');
+        }
+    });
+});
+
+</script>

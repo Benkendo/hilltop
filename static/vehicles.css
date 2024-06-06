@@ -1,0 +1,85 @@
+:root{
+    --btn-bg-color : #222831;
+    --txt-cr-bg-bk : #F7F7F7;
+    --txt-color : rgba(240, 239, 239, 0.8);
+    --btn-gg-cr  : #495664;
+    --text-color  : #303841;
+    --txt-color2 : #F5F5F5;
+    --btn-hovered-bg : #222831;
+
+}
+.vehicles{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 1rem;
+}
+.vehicle{
+    box-shadow: 2px 2px 3px 1px var(--btn-gg-cr);
+    border-radius: 5px;
+    position: relative;
+    height: auto;
+    padding-bottom: 2rem;
+}
+.vehicle > img{
+    width: 100%;
+    height: 40vh;
+}
+.availability{
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    background: rgba(58, 250, 83, 0.6);
+    padding: 5px;
+    border-radius: 2px;
+}
+.vehicle > span, .vehicle > p , .vehicle > div, .vehicle > ul {
+    padding: 10px;
+}
+.vehicle-name{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+.YOM{
+    background: rgba(152, 253, 236, 0.363);
+    padding: 3px;   
+}
+.vehicle-price{
+    font-weight: bold;
+}
+.vehicle-price::before{
+    content: 'Price : ';
+
+}
+.other-details{
+    display: flex;
+    gap: 1rem;
+}
+.other-details > span{
+    background: rgba(92, 100, 100, 0.2);
+    padding: 5px;
+    border-radius: 5px;
+}
+.enquire{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.enquire > li{
+    list-style-type: none;
+    /* width: 100%; */
+}
+.enquire > li > a{
+    text-decoration: none;
+    color: #fff;
+    background:rgb(20, 20, 20) ;
+    padding: 10px;
+    /* width: rem; */
+    border-radius: 5px;
+
+}
+/* doby for phone */
+@media only screen and (max-width: 600px) {
+
+}
